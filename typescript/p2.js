@@ -1,0 +1,20 @@
+var n = 1;
+var a = 'test';
+var m = [1, 2];
+var b = false;
+var yuan = ['test', 123];
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Green"] = 1] = "Green";
+    Color[Color["Blue"] = 2] = "Blue";
+})(Color || (Color = {}));
+var c = Color.Red;
+console.log(c);
+var value;
+value = 100;
+value = null;
+value = undefined;
+var str = '1';
+var str2 = str;
+console.log(str2);
