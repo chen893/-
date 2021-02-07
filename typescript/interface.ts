@@ -13,7 +13,7 @@ interface IPerson{
 }
 
 let Tom: IPerson={
-  name:'tom';
+  name:'tom'
 }
 
 
