@@ -1,5 +1,5 @@
 let handler = {
-  get: function(terget, name) {
+  get: function(target, name) {
     return name in target? target[name] :42;
   }
 };
