@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <script>
+
+    var myImage = (function () {
+      var imgNode = document.createElement('img');
+      document.body.appendChild(imgNode);
+      return {
+        setSrc: function (src) {
+          imgNode.src = src;
+        }
+      }
+    })();
+
+    var proxyImage = (function () {
+      var img = new Image;
+      console.log('===');
+      img.onload = function () {
+        console.log('11');
+        myImage.setSrc(this.src);
+        console.log(this);
+      }
+      return {
+        setSrc: function (src) {
+          myImage.setSrc('https://pic1.zhimg.com/v2-f69a2958a3716f118b2fac217d8a8f9f_1440w.jpg?source=172ae18b');
+          img.src = src;
+        }
+      }
+    })()
+
+    var img = new Image;
+
+    console.log(img);
+    img.onload=function(){
+      console.log('tesyt');
+    }
+    img.src='https://pic1.zhimg.com/v2-f69a2958a3716f118b2fac217d8a8f9f_1440w.jpg?source=172ae18b'
+    // proxyImage.s+etSrc('https://static.zhihu.com/heifetz/assets/logo.804f083e.png')
+// myImage.setSrc('http://imgcache.qq.com')
+  </script>
+</body>
+
+</html>
