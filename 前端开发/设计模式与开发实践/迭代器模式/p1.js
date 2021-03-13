@@ -7,4 +7,3 @@ function fn (i,item){
   console.log('index:'+i);
   console.log('item:'+item);
 }
-each([321,1,123],fn)
