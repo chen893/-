@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>摘要</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <style>
+    /* *{
+      width: 0px;
+      padding: 0px;
+    } */
+    .app {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+
+    .headerStyle {
+      position: absolute;
+      top: 15vh;
+      left: 10%;
+      width: 80%;
+      /* margin: 10px; */
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .mainStyle {
+      position: absolute;
+      top: 25vh;
+      left: 10%;
+      width: 80%;
+      height: 50vh;
+    }
+
+    .text {
+      display: flex;
+      justify-content: space-between;
+      /* flex: 1 1; */
+    }
+
+    .text1 {
+      width: 35vw;
+      height: 400px;
+    }
+
+    .el-textarea__inner {
+      height: 40vh;
+    }
+
+    .displayTu {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 15vh;
+      width: 100%;
+      background-color: rgb(111, 153, 191);
+      ;
+      display: flex;
+      /* justify-content: center; */
+      flex-direction: column;
+      justify-content: space-around;
+      /* flex-direction: column; */
+      align-items: center
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      /* justify-content: space-around; */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="displayTu">
+      <div class="logo">
+        <img src="./logo.jpg"
+          style="width: 2.5vw; height: 2.5vw; object-fit: cover;  display: block;  border-radius: 50%;">
+        <div>
+          <h1 style="padding-left: 50px; display: block;font-size: 1.8vw;">图灵智能创新团队</h1>
+        </div>
+      </div>
+      <p style=" color: white;">TURING©广东海洋大学第一个人工智能团队</p>
+    </div>
+
+    <header class="headerStyle">
+      <div style="margin-top: 20px">
+        <el-radio-group v-model="radio1" size="medium">
+          <el-radio-button label="通用摘要"></el-radio-button>
+          <el-radio-button label="民事诉讼"></el-radio-button>
+          <el-radio-button label="刑事诉讼"></el-radio-button>
+
+        </el-radio-group>
+      </div>
+      <el-button type="primary" style="margin-top: 20px;" size="medium" v-on:click="onSubmit">摘要</el-button>
+    </header>
+    <main class="mainStyle">
+      <el-form ref="form" :model="form" class="text">
+        <el-form-item>
+          <el-input type="textarea" v-model="form.desc0" class='text1' style="height: 400px;"></el-input>
+        </el-form-item>
+        <el-form-item v-loading="loading">
+          <el-input type="textarea" v-model="form.desc1" class='text1' disabled='true'></el-input>
+        </el-form-item>
+      </el-form>
+    </main>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        radio1: '通用摘要',
+        form: {
+          desc0: '',
+          desc1: ''
+        },
+        loading: false
+
+      },
+      methods: {
+        onSubmit() {
+
+          this.loading = true;
+          setTimeout(() => {
+            this.loading = false;
+            this.form.desc1 = '在权利要求1不具备创造性的情况下，汤始建华公司对于权利要求2、3均不具备创造性不持异议，汤始建华公司的上诉请求不能成立，应予驳回。依照《中华人民共和国行政诉讼法》第八十九条第一款第一项规定，驳回上诉，维持原判。'
+          }, 5000)
+          // alert(this.loading);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
