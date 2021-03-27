@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-function Comment() {
+function Example() {
   let initialCount = 1;
   const [count, setCount] = useState(initialCount);
 
@@ -30,4 +30,4 @@ function Comment() {
     </React.Fragment>
   );
 }
-export default Comment;
+export default Example;
