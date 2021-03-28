@@ -32,18 +32,18 @@ function coordinate(lat, long) {
     longitude: function() {
       return _long;
     },
-    translate: function(dx, dy){
-      return corrdinate(_lat+dx, _long+dy);
+    translate: function(dx , dy){
+      return coordinate(_lat+dx, _long+dy);
     },
     toString: function(){
-      return '('+_lat +',' +_long+dy +')';
+      return '('+_lat +',' +_long +')';
     }
   };
 }
 const greewich = coordinate(51.4778, 0.0015);
-greenwich.toString();
+greewich.toString();
 
 //返回一个新的副本是另一种实现不可变性的方式。在该对象上应用一次平移操作，将产生一个新的
 //coordinate对象。
-greenwich.translate(10,10).toString();
+greewich.translate(10,10).toString();
 
